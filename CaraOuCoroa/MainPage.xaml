@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CaraOuCoroa.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Margin="20"
+            Padding="30,0"
+            Spacing="25"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+
+            <Label 
+                Text="CARA OU COROA"
+                FontSize="Large"/>
+
+            <Label
+                Text=""
+                x:Name="ResultLabel"/>
+
+            <Picker x:Name="SidePicker">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>CARA</x:String>
+                        <x:String>COROA</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Button 
+                Text="GIRAR MOEDA"
+                x:Name="CoinFlipButton"
+                Clicked="CoinFlipButton_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
