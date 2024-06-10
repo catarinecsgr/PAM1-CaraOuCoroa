@@ -1,4 +1,6 @@
-﻿namespace CaraOuCoroa
+﻿using CaraOuCoroa.Models;
+
+namespace CaraOuCoroa
 {
     public partial class MainPage : ContentPage
     {
@@ -10,30 +12,10 @@
 
         private void CoinFlipButton_Clicked(object sender, EventArgs e)
         {
-            string Escolha = SidePicker.SelectedItem.ToString();
-
-            int choice = 0;
-            if (Escolha == "COROA") choice = 1;
-            int rnd = new Random().Next(0, 2);
-            string resultado = "";
-            if(rnd == 0)
-            {
-                resultado = "CARA";
-                CoinImage.Source = "cara.jpg";
-            } else
-            {
-                resultado = "COROA";
-                CoinImage.Source = "coroa.jpg";
-            }
-
-            if(rnd == choice)
-            {
-                ResultLabel.Text = $"Iupi!! Deu {resultado}, você ganhou!!";
-            }
-            else
-            {
-                ResultLabel.Text = $"Poxa. Deu {resultado}, você perdeu.";
-            }
+            string escolha = SidePicker.SelectedItem.ToString();
+            string sorteado = new Coin().Girar();
+            CoinImage.Source = sorteado.ToLower()+".jpg";
+            ResultLabel.Text = escolha == sorteado ? $"Parabéns! Deu {sorteado}, você ganhou!" : $"Que pena, deu {sorteado}, você perdeu!";
         }
     }
 
